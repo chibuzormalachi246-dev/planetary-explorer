@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --color-void: #030307;
+  --color-plasma: #00f2fe;
+  --color-azure: #4facfe;
+  --color-nebula: #8e2de2;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-hud-in: hud-in 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  --animate-fade-in: fade-in 1.6s ease-out 0.4s both;
+  --animate-scroll-cue: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+
+  @keyframes hud-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scroll-cue {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-void);
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden bg-void font-sans text-white antialiased select-none;
+  }
+}
